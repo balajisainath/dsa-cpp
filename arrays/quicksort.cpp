@@ -44,23 +44,23 @@ void quicksort(int arrqs[],int s,int e){
 
 int main(){
 
-    int arrqs[]={33,56,8,9,1};
-    int n=sizeof(arrqs)/arrqs[0];
+    int arrqs[5]={33,56,8,9,1};
+    int n=5;
 //array before sort
-cout<<"array before merge sort";
+cout<<"array before merge sort"<<endl;
 for (int i = 0; i < n; i++)
 {
     /* code */
-    cout<<arrqs[i];
+    cout<<arrqs[i]<<",";
 }
 
 quicksort(arrqs,0,n-1);
 
-cout<<"after sort array is";
-for (int i = 0; i < n; i++)
+cout<<"after sort array is"<<endl;
+for (int x = 0; x < n; x++)
 {
     /* code */
-    cout<<arrqs[i];
+    cout<<arrqs[x]<<",";
 }
 
 return 0;
