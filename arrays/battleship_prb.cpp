@@ -12,13 +12,15 @@ int main(){
   };
   int hits=0;
   int numberofturns=0;
-  int row=0;
-  int col=0;
+  
+
 
   while (hits<4)
   {
       /* code */
-      cout<<"enter the row "
+      int row=0;
+      int col=0;
+      cout<<"enter the row ";
       cin>>row;
 
       cout<<"enter the col";

@@ -25,7 +25,7 @@ void bubblesort(int arrbs[],int n){
 }
 
 void printarray(int arrbs[],int n){
-    for (int i = n; i < n; i--)
+    for (int i = 0; i < n; i++)
     {
         /* code */
         cout<<arrbs[i]<<"\n";
@@ -33,7 +33,7 @@ void printarray(int arrbs[],int n){
 }
 
 int main(){
-int arrbs[]={8,9,1,5,2,7,3,0,-2};
+int arrbs[]={8,9,1,5,2,7,3,0};
 int n=sizeof(arrbs)/sizeof(arrbs[0]);
 
 bubblesort(arrbs,n);

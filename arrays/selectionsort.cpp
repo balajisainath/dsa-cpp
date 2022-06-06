@@ -13,6 +13,7 @@ int main()
     int n;
     int arrss[n];
     cin>>n;
+    cout<<"enter the array";
     for (int i=0;i<n;i++){
         cin>>arrss[i];
     }
