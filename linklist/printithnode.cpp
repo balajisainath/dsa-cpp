@@ -36,8 +36,8 @@ void printithnode(node *head,int i){
         cout<<"-1"<<endl;
         return ;
     }
-    int count=0;
-    while (count<=i && head)
+    int count=1;
+    while (count<=i-1 && head)
     {
 
 head=head->next;

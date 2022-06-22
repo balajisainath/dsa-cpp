@@ -15,6 +15,41 @@ class node{
 
 };
 
+node *insertnode(node *head,int i,int data){
+    if (i<0)
+    {
+return head;
+
+    }
+    if(i==0){
+        node *n=new node(data);
+        n->next=head;
+        head=n;
+        return head;
+    }
+    int count=1;
+    while (count<=i-1 head!=NULL )
+    {
+head=head->next;
+count++;
+
+    }
+    if (head!=NULL)
+    {
+
+node *n=new node(data);
+n->next=head->next
+head->next=n;
+return head;
+
+    }
+    return head;
+    
+    
+    
+    
+}
+
 /*void print(node *head){
     node *temp=head;
 

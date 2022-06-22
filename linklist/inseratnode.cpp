@@ -100,6 +100,8 @@ node* insertnode(node *head,int i,int data                          ){
          return head;
     }
 int count=1;
+
+node *copyhead=head;
 while (count<=i-1 && head!=NULL)
 {
     head=head->next;
@@ -109,10 +111,10 @@ if(head){
     node *n=new node(data);
     n->next=head->next;
     head->next=n;
-    return head;
+    return copyhead;
 }
 
-return head;
+return copyhead;
 
 
    
@@ -129,7 +131,7 @@ int main(){
 node *head=takeinput();
 int i,data;
 cin>>i>>data;
-insertnode(head,i,data);
+head=insertnode(head,i,data);
 print(head);
 
 
