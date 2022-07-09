@@ -103,6 +103,6 @@ int countnodes(treenode<int>* root){
 int main(){
 treenode<int>* root=takeinputlevelwise();
 printtreelevelwise(root);
-cout<<"no of nodes of tree"<<countnodes(root)<<endl;
+cout<<"no of nodes of tree= "<<countnodes(root)<<endl;
 return 0;
 }
