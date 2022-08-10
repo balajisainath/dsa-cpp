@@ -11,6 +11,8 @@ student s1(10,100);
 student s2(20,200);
 
 s2=s1;//operator copy constructor
+//or
+student s4=s1; //2 steps in one go in above
 s1.display();
 s2.display(); //copied from s1 so values overided
 

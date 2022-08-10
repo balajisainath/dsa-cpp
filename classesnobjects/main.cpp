@@ -31,6 +31,7 @@ cout<<s1.rollno;
 cout<<endl;
 
 s3->display();
+s3->getage();//accesing private data through member funxn
 
 return 0;
 }

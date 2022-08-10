@@ -19,6 +19,14 @@ public:
       delete right;
     }
 };
+
+
+class Pair{
+    public:
+     BTNode<int>* head;
+     BTNode<int>* tail;
+};
+
 class BST{
     BTNode<int>* root;
 
@@ -103,6 +111,44 @@ class BST{
         return node;
      }
 
+    Pair convertToLL(BTNode<int>* root){
+        if(root==NULL){
+            Pair ans;
+            ans.head = NULL;
+            ans.tail = NULL;
+            return ans;
+        }
+         if(root->left == NULL && root->right==NULL){
+            Pair p;
+            p.head = root;
+            p.tail = root;
+            return p;
+         }else if(root->left!=NULL && root->right==NULL){
+              Pair leftLL = convertToLL(root->left);
+              leftLL.tail->right = root;
+              Pair ans;
+              ans.head = leftLL.head;
+              ans.tail = root;
+              return ans;
+         }else if(root->left==NULL && root->right!=NULL){
+             Pair rightLL = convertToLL(root->right);
+             root->right = rightLL.head;
+             Pair ans;
+             ans.head = root;
+             ans.tail = rightLL.tail;
+             return ans;
+         }else{
+           Pair leftLL = convertToLL(root->left);
+           Pair rightLL = convertToLL(root->right);
+           leftLL.tail->right = root;
+           root->right = rightLL.head;
+           Pair ans;
+           ans.head = leftLL.head;
+           ans.tail = rightLL.tail;
+           return ans;
+         }
+    }
+
  public:
     BST(){
         root = NULL;
@@ -123,39 +169,37 @@ class BST{
     void print(){
         printTree(root);
     }
+    BTNode<int>* convertToLL(){
+        Pair p = convertToLL(root);
+         BTNode<int>* tmp = p.head;
+         while(tmp!=NULL){
+            tmp->left = NULL;
+            tmp = tmp->right;
+         }
+        return p.head;
+    }
 };
+
+
+
 int main(){
    BST b;
-   b.insert(10);
-   b.insert(5);
-   b.insert(20);
-   b.insert(7);
+   b.insert(4);
+   b.insert(2);
+   b.insert(1);
    b.insert(3);
-   b.insert(15);
-
+   b.insert(6);
+   b.insert(5);
+   b.insert(7);
    b.print();
 
-   b.deleteData(10);
-   cout<<endl;
-
-    b.print();
-    b.deleteData(5);
-    cout<<endl;
-
-    b.print();
-    b.deleteData(100);
-    cout<<endl;
-    b.print();
-
-    cout<<"deleting 7"<<endl;
-    b.deleteData(7);
-    cout<<endl;
-    b.print();
+   BTNode<int>* head = b.convertToLL();
+   BTNode<int>* tmp = head;
+   while(tmp!=NULL){
+    cout<<tmp->data<<"->";
+    tmp = tmp->right;
+   }
 
 
-    cout<<"deleting 20"<<endl;
-    b.deleteData(20);
-    cout<<endl;
-    b.print();
    return 0;
 }

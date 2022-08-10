@@ -75,7 +75,6 @@ void printtree(btnode<int>* root){
 
 void inorder(btnode<int>* root){
     queue<btnode<int>*> q;
-
     q.push(root);
     q.push(NULL);
     while (!q.empty())
@@ -96,22 +95,18 @@ void inorder(btnode<int>* root){
                     if(f->left){
                            
                         q.push(f->left);
-                        cout<<f->left;
+                        
                      
                     }
                     if (f->right)
                     {
                         
                     q.push(f->right);
-                    cout<<f->right;
-                   
-                    }
                     
-
-            }
-            
+                   
+                  }
+        }
     }
-    
 }
 
 int main(){

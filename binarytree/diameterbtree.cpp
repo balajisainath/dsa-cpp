@@ -118,11 +118,49 @@ bool getpath(btnode<int>* root,int val,vector<int> &ans ){
     
     
 }
+btnode<int>* bstpath(btnode<int>* root,int val){
+    if(root==NULL) return NULL;
+    if(root->data==val){
+        return root;
+    }
+    if(val>root->data){
+        return bstpath(root->right,val);
+    }
+    else if (val<root->data)
+    {
+        /* code */return bstpath(root->left,val);
+    }
+    return NULL;
+    
+}
+bool helper(btnode<int>* root,long long minV=-10000000000,long long maxV=10000000000){
+    if (root==NULL)
+    {
+        return true;
+    }
+    bool left=helper(root->left,minV,root->data);
+    bool right=helper(root->right,root->data,maxV);
+    if (left && right && root->data>minV && root->data <maxV)
+    {
+    return true;
+    }
+    else{
+        return false;
+    }
+    
+
+    
+}
+bool validatebst(btnode<int>* root){
+    return helper(root);
+
+}
+
 
 int main(){
     btnode<int> * root=takeinputlevel();
     printtree(root);
-    cout<<endl;
+   /* cout<<endl;
     cout<<"height of tree"<<height(root)<<endl;
     cout<<"diameter of tree="<<diameter(root)<<endl;
 
@@ -140,9 +178,21 @@ int main(){
     }
 
 
-    delete root;
+
+
+    delete root;*/
+    if (validatebst)
+    {
+        cout<<"it is bst"<<endl;
+    }
+    else{
+        cout<<"it is not a bst"<<endl;
+    }
+    
 
     return 0;
 
 }
+
 // 1 2 3 4 5 -1 6 -1 -1 8 7 -1 -1 9 -1 -1 -1 -1 -1
+// 10 5 17 4 9 13 18 3 -18 -1 12 14 -1 -1 -1 -1 7 -1 -1 -1 -1 15 -1 -1 5 -1
